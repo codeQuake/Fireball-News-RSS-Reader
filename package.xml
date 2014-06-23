@@ -5,7 +5,7 @@
 		<packagedescription>Ermöglicht Nachrichten von RSS Feeds zu erstellen</packagedescription>
 		<plugin>de.codequake.cms</plugin>
 		<version>1.0.2</version>
-		<date>2014-03-21</date>
+		<date>2014-06-23</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -15,7 +15,7 @@
 
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="1.1.0">de.codequake.cms</requiredpackage>
+		<requiredpackage minversion="2.0.0 Alpha 1">de.codequake.cms</requiredpackage>
 	</requiredpackages>
 
 	<instructions type="install">
