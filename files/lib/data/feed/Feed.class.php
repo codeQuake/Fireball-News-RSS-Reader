@@ -12,7 +12,9 @@ use wcf\system\WCF;
  * @package	de.codequake.cms.news.rss
  */
 class Feed extends CMSDatabaseObject {
+
 	protected static $databaseTableName = 'feed';
+
 	protected static $databaseTableIndexName = 'feedID';
 
 	public function __construct($id, $row = null, $object = null) {

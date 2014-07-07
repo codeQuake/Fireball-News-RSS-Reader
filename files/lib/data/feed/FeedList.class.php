@@ -10,5 +10,6 @@ use wcf\data\DatabaseObjectList;
  * @package	de.codequake.cms.news.rss
  */
 class FeedList extends DatabaseObjectList {
+
 	public $className = 'cms\data\feed\Feed';
 }

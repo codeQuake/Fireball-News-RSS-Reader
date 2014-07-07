@@ -10,5 +10,6 @@ use wcf\data\DatabaseObjectEditor;
  * @package	de.codequake.cms.news.rss
  */
 class FeedEditor extends DatabaseObjectEditor {
+
 	protected static $baseClass = 'cms\data\feed\Feed';
 }

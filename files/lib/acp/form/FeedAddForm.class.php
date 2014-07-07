@@ -20,18 +20,29 @@ use wcf\util\StringUtil;
  * @package	de.codequake.cms.news.rss
  */
 class FeedAddForm extends AbstractForm {
+
 	public $templateName = 'feedAdd';
+
 	public $neededPermissions = array(
 		'admin.cms.news.canAddFeed'
 	);
+
 	public $activeMenuItem = 'cms.acp.menu.link.cms.feed.add';
+
 	public $title = '';
+
 	public $feedUrl = '';
+
 	public $categoryID = 0;
+
 	public $languageID = null;
+
 	public $image = null;
+
 	public $imageList;
+
 	public $availableContentLanguages = array();
+
 	public $categoryList = null;
 
 	public function readData() {
@@ -83,8 +94,7 @@ class FeedAddForm extends AbstractForm {
 			$request->execute();
 			$feedData = $request->getReply();
 			$feedData = $feedData['body'];
-		}
-		catch (SystemException $e) {
+		} catch (SystemException $e) {
 			// invalid URL
 			return (array(
 				'errorMessage' => $e->getMessage()

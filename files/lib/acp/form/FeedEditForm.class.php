@@ -15,7 +15,9 @@ use wcf\util\StringUtil;
  * @package	de.codequake.cms.news.rss
  */
 class FeedEditForm extends FeedAddForm {
+
 	public $feedID = 0;
+
 	public $feed = null;
 
 	public function readData() {
