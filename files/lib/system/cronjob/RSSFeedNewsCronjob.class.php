@@ -60,6 +60,7 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 									'enableBBCodes' => 1,
 									'enableHtml' => 1,
 									'enableSmilies' => 1,
+									'showSignature' => 0,
 									'imageID' => $feed->imageID,
 									'lastChangeTime' => TIME_NOW
 								);
@@ -94,6 +95,7 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 									'enableBBCodes' => 1,
 									'enableHtml' => 1,
 									'enableSmilies' => 1,
+									'showSignature' => 0,
 									'imageID' => $feed->imageID,
 									'lastChangeTime' => TIME_NOW
 								);
@@ -124,6 +126,7 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 									'isDisabled' => 0,
 									'enableBBCodes' => 1,
 									'enableHtml' => 1,
+									'showSignature' => 0,
 									'enableSmilies' => 1,
 									'imageID' => $feed->imageID,
 									'lastChangeTime' => TIME_NOW
