@@ -29,7 +29,8 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 				$request->execute();
 				$feedData = $request->getReply();
 				$feedData = $feedData['body'];
-			} catch (SystemException $e) {
+			}
+			catch (SystemException $e) {
 				// invalid URL
 				return (array(
 					'errorMessage' => $e->getMessage()
