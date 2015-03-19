@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd"
-	languagecode="de">
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
 	<category name="cms.acp.feed">
 		<item name="cms.acp.feed.list"><![CDATA[RSS-Feeds auflisten]]></item>
 		<item name="cms.acp.feed.general"><![CDATA[Allgemeine Informationen]]></item>
 		<item name="cms.acp.feed.title"><![CDATA[Titel]]></item>
-		>
 		<item name="cms.acp.feed.url"><![CDATA[RSS Feed]]></item>
 		<item name="cms.acp.feed.add"><![CDATA[RSS-Feed hinzufügen]]></item>
 		<item name="cms.acp.feed.edit"><![CDATA[RSS-Feed bearbeiten]]></item>
