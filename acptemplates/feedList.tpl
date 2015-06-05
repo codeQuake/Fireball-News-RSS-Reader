@@ -1,28 +1,27 @@
 {include file='header' pageTitle='cms.acp.feed.list'}
 
-
-<header class="boxHeadline">
-    <h1>{lang}cms.acp.feed.list{/lang}</h1>
-	<script data-relocate="true">
-		//<![CDATA[
+<script data-relocate="true">
+	//<![CDATA[
 		$(function() {
 			new WCF.Action.Delete('cms\\data\\feed\\FeedAction', '.jsFeedRow');
 		});
-		//]]>
-	</script>
+	//]]>
+</script>
+
+<header class="boxHeadline">
+	<h1>{lang}cms.acp.feed.list{/lang}</h1>
 </header>
 
 <div class="contentNavigation">
 	{pages print=true assign=pagesLinks application='cms' controller="FeedList" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
+	
 	<nav>
 		<ul>
 			<li><a href="{link controller='FeedAdd' application='cms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}cms.acp.feed.add{/lang}</span></a></li>
-			
 			{event name='contentNavigationButtonsTop'}
 		</ul>
 	</nav>
 </div>
-
 
 {if $objects|count}
 	<div class="tabularBox tabularBoxTitle marginTop">
@@ -40,7 +39,6 @@
 					{event name='columnHeads'}
 				</tr>
 			</thead>
-			
 			<tbody>
 				{foreach from=$objects item=feed}
 					<tr class="jsFeedRow">
@@ -66,7 +64,6 @@
 		<nav>
 			<ul>
 				<li><a href="{link controller='FeedAdd' application='cms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}cms.acp.feed.add{/lang}</span></a></li>
-				
 				{event name='contentNavigationButtonsBottom'}
 			</ul>
 		</nav>
