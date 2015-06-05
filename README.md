@@ -3,7 +3,7 @@ Fireball Newssystem RSS-Reader
 
 This is a RSS Reader Plugin for the Fireball CMS Newssystem. It posts news based on RSS Feeds you can enter.
 
-[![Build Status](https://travis-ci.org/codeQuake/Fireball-News-RSS-Reader.svg?branch=master)](https://travis-ci.org/codeQuake/Fireball-News-RSS-Reader)
+[![Build Status](https://travis-ci.org/codeQuake/Fireball-News-RSS-Reader.svg?branch=wcf2.1)](https://travis-ci.org/codeQuake/Fireball-News-RSS-Reader)
 
 Contributions
 ----------------
