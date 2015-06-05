@@ -6,8 +6,8 @@
 		<packagename>Fireball CMS RSS Feed Poster</packagename>
 		<packagedescription>Ermöglicht Nachrichten von RSS Feeds zu erstellen</packagedescription>
 		<plugin>de.codequake.cms</plugin>
-		<version>1.0.2</version>
-		<date>2014-06-23</date>
+		<version>1.1.0</version>
+		<date>2015-06-05</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -16,9 +16,9 @@
 	</authorinformation>
 
 	<requiredpackages>
-		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="2.0.0 Beta 1">de.codequake.cms</requiredpackage>
-		<requiredpackage minversion="2.0.0 Alpha 1">de.codequake.cms.news</requiredpackage>
+		<requiredpackage minversion="2.1.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="2.1.0 RC 1">de.codequake.cms</requiredpackage>
+		<requiredpackage minversion="2.1.0">de.codequake.cms.news</requiredpackage>
 	</requiredpackages>
 
 	<instructions type="install">
@@ -31,43 +31,7 @@
 		<instruction type="cronjob">xml/cronjob.xml</instruction>
 	</instructions>
 
-	<instructions type="update" fromversion="1.0.0">
-		<instruction type="file" application="cms">files.tar</instruction>
-		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.1">
-		<instruction type="file" application="cms">files.tar</instruction>
-		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.1 pl 1">
-		<instruction type="file" application="cms">files.tar</instruction>
-		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.1 pl 2">
-		<instruction type="file" application="cms">files.tar</instruction>
-		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.1 pl 3">
-		<instruction type="file" application="cms">files.tar</instruction>
-		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.1 pl 4">
-		<instruction type="file" application="cms">files.tar</instruction>
-		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
-		<instruction type="language">language/*.xml</instruction>
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.1 pl 5">
+	<instructions type="update" fromversion="1.0.2">
 		<instruction type="file" application="cms">files.tar</instruction>
 		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
 		<instruction type="language">language/*.xml</instruction>
