@@ -61,7 +61,7 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 									'enableHtml' => 1,
 									'enableSmilies' => 1,
 									'showSignature' => 0,
-									'imageID' => $feed->imageID,
+									'imageID' => $feed->imageID ?: null,
 									'lastChangeTime' => TIME_NOW
 								);
 								$categoryIDs = array(
@@ -96,7 +96,7 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 									'enableHtml' => 1,
 									'enableSmilies' => 1,
 									'showSignature' => 0,
-									'imageID' => $feed->imageID,
+									'imageID' => $feed->imageID ?: null,
 									'lastChangeTime' => TIME_NOW
 								);
 								
@@ -128,7 +128,7 @@ class RSSFeedNewsCronjob extends AbstractCronjob {
 									'enableHtml' => 1,
 									'showSignature' => 0,
 									'enableSmilies' => 1,
-									'imageID' => $feed->imageID,
+									'imageID' => $feed->imageID ?: null,
 									'lastChangeTime' => TIME_NOW
 								);
 								

@@ -1,6 +1,35 @@
 {capture assign='pageTitle'}{lang}cms.acp.feed.{@$action}{/lang}{/capture}
 {include file='header'}
 
+<script data-relocate="true" src="{@$__wcf->getPath('cms')}js/CMS.News.js?v={@$__wcfVersion}"></script>
+<script data-relocate="true" src="{@$__wcf->getPath('cms')}acp/js/CMS.ACP.js?v={@$__wcfVersion}"></script>
+<script data-relocate="true">
+	//<![CDATA[
+		$(function () {
+			WCF.Language.addObject({
+				'wcf.global.button.upload': '{lang}wcf.global.button.upload{/lang}'
+			});
+			
+			new WCF.Category.NestedList();
+			new WCF.Message.FormGuard();
+			
+			// use acp file picker
+			new CMS.ACP.File.Picker($('#filePicker > .button'), 'imageID', {
+				{if $image|isset}
+					{@$image->fileID}: {
+						fileID: {@$image->fileID},
+						title: '{$image->getTitle()}',
+						formattedFilesize: '{@$image->filesize|filesize}'
+					}
+				{/if}
+			}, { fileType: 'image' });
+			new CMS.ACP.File.Preview();
+			
+			WCF.Message.Submit.registerButton('text', $('#messageContainer > .formSubmit > input[type=submit]'));
+		});
+	//]]>
+</script>
+
 <header class="boxHeadline">
     <h1>{lang}cms.acp.feed.{@$action}{/lang}</h1>
 </header>
@@ -48,61 +77,15 @@
 					</select>
 				</dd>
 			</dl>
-			<dl>
-					<dt><label for="text">{lang}cms.news.image{/lang}</label></dt>
-					<dd>
-						<div id="previewImage">
-						{if $image|isset &&  $image->imageID && $image->imageID != 0}
-								<div class="box96">
-									<div class="framed">
-										{@$image->getImageTag('96')}
-									</div>
-									<div>										<div>
-											<p>{$image->title}</p>
-										</div>
-									</div>
-								</div>
-						{/if}
-						</div>
-						<a class="button" id="imageSelectButton">{lang}cms.news.image.select{/lang}</a>
-						<script data-relocate="true">
-							//<![CDATA[
-							$(function() {
-								WCF.Language.addObject({
-										'cms.news.image.select': '{lang}cms.news.image.select{/lang}'
-										});
-								$('#imageSelect').hide();
-								$('#imageSelectButton').click(function() {
-									$('#imageSelect').wcfDialog({
-										title: WCF.Language.get('cms.news.image.select')
-									});
-								});
-							});
-							//]]>
-						</script>
-						
-						<input type="hidden" name="imageID" value="{$imageID}" id="imageID" />
-						<div id="imageSelect" style="display: none;">
-							{foreach from=$imageList item='imageItem'}
-								<a id="imageSelect{$imageItem->imageID}">
-									{@$imageItem->getImageTag('256')}
-								</a>
-								<script data-relocate="true">
-									//<![CDATA[
-									$(function() {
-										$('#imageSelect{$imageItem->imageID}').click(function() {
-											$('#imageID').val("{$imageItem->imageID}");
-											var html = '<div class="box96"><div class="framed">{@$imageItem->getImageTag('96')}</div><div><p>{$imageItem->title}</p></div></div>';
-											$('#previewImage').html(html);
-											$('#imageSelect').wcfDialog('close');
-										});
-									});
-									//]]>
-								</script>
-							{/foreach}
-						</div>
-					</dd>
-				</dl>
+			<dl class="newsImageSelect">
+				<dt><label for="image">{lang}cms.news.image{/lang}</label></dt>
+				<dd>
+					<div id="filePicker">							
+						<ul class="formAttachmentList clearfix"></ul>
+						<span class="button small">{lang}cms.acp.file.picker{/lang}</span>
+					</div>
+				</dd>
+			</dl>
         </fieldset>
         
     </div>

@@ -26,7 +26,7 @@ class FeedEditForm extends FeedAddForm {
 		$this->feed = new Feed($this->feedID);
 		$this->title = $this->feed->title;
 		$this->feedUrl = $this->feed->feedUrl;
-		$this->image = new NewsImage($this->feed->imageID);
+		$this->imageID = $this->feed->imageID;
 	}
 
 	public function readFormParameters() {
@@ -52,7 +52,7 @@ class FeedEditForm extends FeedAddForm {
 			'lastCheck' => TIME_NOW,
 			'categoryID' => $this->categoryID,
 			'languageID' => $this->languageID,
-			'imageID' => $this->image->imageID
+			'imageID' => $this->imageID ?: null
 		));
 		$objectAction->executeAction();
 		
