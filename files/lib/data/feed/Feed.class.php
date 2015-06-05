@@ -1,8 +1,6 @@
 <?php
 namespace cms\data\feed;
-
-;
-use cms\data\CMSDatabaseObject;
+use wcf\data\DatabaseObject;
 use wcf\system\WCF;
 
 /**
@@ -11,7 +9,7 @@ use wcf\system\WCF;
  * @license	GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl-3.0.txt>
  * @package	de.codequake.cms.news.rss
  */
-class Feed extends CMSDatabaseObject {
+class Feed extends DatabaseObject {
 
 	protected static $databaseTableName = 'feed';
 
