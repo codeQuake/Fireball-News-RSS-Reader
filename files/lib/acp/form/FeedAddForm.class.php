@@ -2,8 +2,7 @@
 namespace cms\acp\form;
 
 use cms\data\feed\FeedAction;
-use cms\data\news\image\NewsImage;
-use cms\data\news\image\NewsImageList;
+use cms\data\file\FileCache;
 use wcf\form\AbstractForm;
 use wcf\system\category\CategoryHandler;
 use wcf\system\exception\SystemException;
@@ -37,21 +36,18 @@ class FeedAddForm extends AbstractForm {
 
 	public $languageID = null;
 
-	public $image = null;
-
-	public $imageList;
-
 	public $availableContentLanguages = array();
 
 	public $categoryList = null;
+
+	public $image = null;
+
+	public $imageID = 0;
 
 	public function readData() {
 		parent::readData();
 		$this->availableContentLanguages = LanguageFactory::getInstance()->getContentLanguages();
 		$this->categoryList = CategoryHandler::getInstance()->getCategories('de.codequake.cms.category.news'); // news images
-		$list = new NewsImageList();
-		$list->readObjects();
-		$this->imageList = $list->getObjects();
 	}
 
 	public function readFormParameters() {
@@ -61,7 +57,7 @@ class FeedAddForm extends AbstractForm {
 		if (isset($_POST['feedUrl'])) $this->feedUrl = StringUtil::trim($_POST['feedUrl']);
 		if (isset($_POST['categoryID'])) $this->categoryID = intval($_POST['categoryID']);
 		if (isset($_POST['languageID'])) $this->languageID = intval($_POST['languageID']);
-		if (isset($_POST['imageID'])) $this->image = new NewsImage(intval($_POST['imageID']));
+		if (isset($_POST['imageID'])) $this->imageID = intval($_POST['imageID']);
 	}
 
 	public function save() {
@@ -74,7 +70,7 @@ class FeedAddForm extends AbstractForm {
 				'lastCheck' => TIME_NOW,
 				'categoryID' => $this->categoryID,
 				'languageID' => $this->languageID,
-				'imageID' => $this->image->imageID
+				'imageID' => $this->imageID ?: null
 			)
 		));
 		$objectAction->executeAction();
@@ -84,6 +80,7 @@ class FeedAddForm extends AbstractForm {
 		
 		$this->title = '';
 		$this->feedUrl = '';
+		$this->imageID = 0;
 	}
 
 	public function validate() {
@@ -107,6 +104,8 @@ class FeedAddForm extends AbstractForm {
 	public function assignVariables() {
 		parent::assignVariables();
 		
+		if ($this->imageID && $this->imageID != 0) $this->image = FileCache::getInstance()->getFile($this->imageID);
+		
 		WCF::getTPL()->assign(array(
 			'categories' => $this->categoryList,
 			'title' => $this->title,
@@ -114,10 +113,9 @@ class FeedAddForm extends AbstractForm {
 			'action' => 'add',
 			'availableContentLanguages' => $this->availableContentLanguages,
 			'categoryID' => $this->categoryID,
-			'imageID' => isset($this->image->imageID) ? $this->image->imageID : 0,
 			'image' => $this->image,
-			'languageID' => $this->languageID,
-			'imageList' => $this->imageList
+			'imageID' => $this->imageID,
+			'languageID' => $this->languageID
 		));
 	}
 }
